@@ -1,0 +1,437 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>28/9/2021 21:54</date_creation>
+  <Elements>
+    <Action>
+      <Position>1947;17</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>?</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>Deviner un nombre</Titre>
+      <DetailsVisible>0</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>816;108</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>nombreMystere,borneInf
+,borneSup,
+nombreTrouve,erreur</PostAssertion>
+          <Titre>Initialisation du jeu </Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>775;265</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>nombreMystere</PostAssertion>
+              <Titre>Création du nombre mystere</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>774;341</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>nombreMystere</PostAssertion>
+                  <Titre>Prendre un nombre aléatoire entre borneInf et borneSup</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>1122;428</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>nombreTrouve, 
+erreur</PostAssertion>
+              <Titre>Création des booléens </Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>1060;606</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>nombreTrouve</PostAssertion>
+                  <Titre>nombreTrouve &lt;= faux</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>1201;524</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>erreur</PostAssertion>
+                  <Titre>erreur &lt;= faux</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>401;268</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>nombresTentatives,
+borneInf,
+borneSup,</PostAssertion>
+              <Titre>Saisr les données</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>264;562</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>nombresTentatives </PostAssertion>
+                  <Titre>Saisie le nombre de tentatives </Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>391;489</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>borneInf</PostAssertion>
+                  <Titre>Saisir la borne inférieure de l'intervalle</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>512;416</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>borneSup</PostAssertion>
+                  <Titre>Saisir la borne supérieure de l'intervalle</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>1780;147</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>nombreTentatives, nombreMystere, borneInf, borneSup, nombreTrouve, erreur</PreAssertion>
+          <PostAssertion>erreur, nombreTrouve, nombreSaisi</PostAssertion>
+          <Titre>Jouer la partie </Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Iteration>
+              <Position>2143.5;287.5</Position>
+              <StyleLien>1</StyleLien>
+              <Titre>Pour i de 1 à nombresTentatives </Titre>
+              <IterationFixe>1</IterationFixe>
+              <Enfants>
+                <Condition>
+                  <Position>2069;397</Position>
+                  <StyleLien>1</StyleLien>
+                  <estUnique>1</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>nombreTrouve = faux
+erreur = faux</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1830;540</Position>
+                          <StyleLien>2</StyleLien>
+                          <PreAssertion>i, 
+borneInf, 
+borneSup</PreAssertion>
+                          <PostAssertion>nombreSaisi</PostAssertion>
+                          <Titre>Saisie-affichage</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants>
+                            <Action>
+                              <Position>1683;653</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>i,
+borneInf,
+borneSup</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Afficher le nombre de tentative actuelle </Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>0</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                            <Action>
+                              <Position>2022;652</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>nombreSaisi</PostAssertion>
+                              <Titre>saisir un nombre</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>0</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </Action>
+                        <Action>
+                          <Position>2395;548</Position>
+                          <StyleLien>2</StyleLien>
+                          <PreAssertion>borneInf, borneSup, nombreMystere, nombreSaisi, nombreTrouve</PreAssertion>
+                          <PostAssertion>nombreTrouve,
+erreur</PostAssertion>
+                          <Titre>analyse </Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants>
+                            <Condition>
+                              <Position>2325.5;657</Position>
+                              <StyleLien>0</StyleLien>
+                              <estUnique>0</estUnique>
+                              <operationsLogiques>
+                                <operation>
+                                  <Titre>nombreTrouve = vrai</Titre>
+                                  <Enfants>
+                                    <Action>
+                                      <Position>2315;760</Position>
+                                      <StyleLien>1</StyleLien>
+                                      <PreAssertion>?</PreAssertion>
+                                      <PostAssertion>?</PostAssertion>
+                                      <Titre>nombreTrouve &lt;= vrai</Titre>
+                                      <DetailsVisible>1</DetailsVisible>
+                                      <DetailsVideVisible>0</DetailsVideVisible>
+                                      <Enfants/>
+                                    </Action>
+                                  </Enfants>
+                                </operation>
+                                <operation>
+                                  <Titre>borneInf &lt; nombreSaisi &lt; nombreMystere</Titre>
+                                  <Enfants>
+                                    <Action>
+                                      <Position>2501;759</Position>
+                                      <StyleLien>1</StyleLien>
+                                      <PreAssertion>?</PreAssertion>
+                                      <PostAssertion>?</PostAssertion>
+                                      <Titre>Afficher trop petit</Titre>
+                                      <DetailsVisible>1</DetailsVisible>
+                                      <DetailsVideVisible>0</DetailsVideVisible>
+                                      <Enfants/>
+                                    </Action>
+                                  </Enfants>
+                                </operation>
+                                <operation>
+                                  <Titre>borneSup > nombreSaisi > nombreMystere</Titre>
+                                  <Enfants>
+                                    <Action>
+                                      <Position>2668;760</Position>
+                                      <StyleLien>1</StyleLien>
+                                      <PreAssertion>?</PreAssertion>
+                                      <PostAssertion>?</PostAssertion>
+                                      <Titre>Afficher trop grand </Titre>
+                                      <DetailsVisible>1</DetailsVisible>
+                                      <DetailsVideVisible>0</DetailsVideVisible>
+                                      <Enfants/>
+                                    </Action>
+                                  </Enfants>
+                                </operation>
+                                <operation>
+                                  <Titre>Sinon</Titre>
+                                  <Enfants>
+                                    <Action>
+                                      <Position>2839;761</Position>
+                                      <StyleLien>1</StyleLien>
+                                      <PreAssertion>?</PreAssertion>
+                                      <PostAssertion>?</PostAssertion>
+                                      <Titre>erreur = vrai</Titre>
+                                      <DetailsVisible>1</DetailsVisible>
+                                      <DetailsVideVisible>0</DetailsVideVisible>
+                                      <Enfants/>
+                                    </Action>
+                                  </Enfants>
+                                </operation>
+                              </operationsLogiques>
+                            </Condition>
+                          </Enfants>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre>?</Titre>
+                      <Enfants/>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Iteration>
+            <Action>
+              <Position>1503;262</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>nombreTentatives, 
+borneInf, 
+borneSup</PreAssertion>
+              <PostAssertion>erreur</PostAssertion>
+              <Titre>Verification des saisies</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Condition>
+                  <Position>1672.5;349</Position>
+                  <StyleLien>1</StyleLien>
+                  <estUnique>1</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>nombreTentatives &lt;1 ou
+borneInf > borneSup</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1680;428</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>erreur</PostAssertion>
+                          <Titre>erreur &lt;= vrai</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre>Sinon</Titre>
+                      <Enfants/>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>3281;163</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>nommbreTrouve, erreur, nombreSaisi, nombreTentatives, BorneInf, BorneSup</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>Finaliser la partie </Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants>
+            <ConditionMultiple>
+              <Position>3484.5;257</Position>
+              <StyleLien>0</StyleLien>
+              <Titre>erreur</Titre>
+              <operationsLogiques>
+                <operation>
+                  <Titre>vrai</Titre>
+                  <Enfants>
+                    <Condition>
+                      <Position>3117.5;402</Position>
+                      <StyleLien>0</StyleLien>
+                      <estUnique>0</estUnique>
+                      <operationsLogiques>
+                        <operation>
+                          <Titre>borneInf &lt;
+borneSup</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>3041;534</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Afficher erreur bornes inversées</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                        <operation>
+                          <Titre>nombreTentatives &lt; 1</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>3207;573</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Afficher erreur nombre de tentatives négatif</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                        <operation>
+                          <Titre>nombreSaisi>borneSup
+ou nombreSaisi&lt;borneInf</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>3367;512</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Afficher erreur nombre hors intervalle</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                      </operationsLogiques>
+                    </Condition>
+                  </Enfants>
+                </operation>
+                <operation>
+                  <Titre>faux</Titre>
+                  <Enfants>
+                    <ConditionMultiple>
+                      <Position>3644.5;402</Position>
+                      <StyleLien>0</StyleLien>
+                      <Titre>nombreTrouve</Titre>
+                      <operationsLogiques>
+                        <operation>
+                          <Titre>vrai</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>3558;576</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Afficher réussite</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                        <operation>
+                          <Titre>faux</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>3662;650</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Afficher echec</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                      </operationsLogiques>
+                    </ConditionMultiple>
+                  </Enfants>
+                </operation>
+              </operationsLogiques>
+            </ConditionMultiple>
+          </Enfants>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+</Algorithme>
