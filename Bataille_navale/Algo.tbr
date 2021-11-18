@@ -1,0 +1,314 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>18/11/2021 16:30</date_creation>
+  <Elements>
+    <Condition>
+      <Position>477;442</Position>
+      <StyleLien>1</StyleLien>
+      <estUnique>0</estUnique>
+      <operationsLogiques>
+        <operation>
+          <Titre>lignePremiereCase =
+ligneDeuxiemeCase</Titre>
+          <Enfants>
+            <Action>
+              <Position>358;572</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>decalageVertical ← 0</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Condition>
+              <Position>446;661</Position>
+              <StyleLien>1</StyleLien>
+              <estUnique>0</estUnique>
+              <operationsLogiques>
+                <operation>
+                  <Titre>colonnePremiereCase &lt;
+colonneDeuxiemeCase</Titre>
+                  <Enfants/>
+                </operation>
+                <operation>
+                  <Titre>Sinon</Titre>
+                  <Enfants/>
+                </operation>
+              </operationsLogiques>
+            </Condition>
+          </Enfants>
+        </operation>
+        <operation>
+          <Titre>colonnePremiereCase =
+colonneDeuxiemeCase</Titre>
+          <Enfants>
+            <Action>
+              <Position>618;572</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>decalageHorizontall ← 0</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Condition>
+              <Position>769;668</Position>
+              <StyleLien>1</StyleLien>
+              <estUnique>0</estUnique>
+              <operationsLogiques>
+                <operation>
+                  <Titre>?</Titre>
+                  <Enfants/>
+                </operation>
+                <operation>
+                  <Titre>Sinon</Titre>
+                  <Enfants/>
+                </operation>
+              </operationsLogiques>
+            </Condition>
+          </Enfants>
+        </operation>
+      </operationsLogiques>
+    </Condition>
+    <Action>
+      <Position>382;771</Position>
+      <StyleLien>1</StyleLien>
+      <PreAssertion>?</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>decalageHorizontal ← 1</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants/>
+    </Action>
+    <Action>
+      <Position>1333;370</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>grille[][TAILLE_GRILLE]</PreAssertion>
+      <PostAssertion>grille</PostAssertion>
+      <Titre>creationBateau</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>958;502</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>Création premier point</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>925;608</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>lignePremiereCase ← aleatoire
+entre 0 et 8</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>1010;660</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>colonnePremiereCase ← aleatoire
+entre 0 et 8</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>1132;711</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>grille[lignePremiereCase]
+[colonnePremiereCase] ← ' '</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>1506;575</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>lignePremiereCase
+colonnePremiereCase</PreAssertion>
+          <PostAssertion>xmin, xmax
+ymin, ymax</PostAssertion>
+          <Titre>Analyse des directions 
+possibles en fonction 
+des bords</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>1473;692</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>Inititalisation 
+zone de recherche</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>1393;850</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>ymin = lignePremiereCase -1
+ymax = lignePremiereCase +1</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>1507;785</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>xmin = lignePremiereCase -1
+xmax = lignePremiereCase +1</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>1799;691</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>Reduction de zone de
+recherche en fonction de 
+la proximité des bords</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Condition>
+                  <Position>1629;907</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>lignePremiereCase
+&lt; 3</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1619;995</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>ymin ← lignePremiereCase</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre>lignePremiereCase
+> 6</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1735;1064</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>ymax ← lignePremiereCase</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+                <Condition>
+                  <Position>1841;823</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>colonnePremiereCase
+&lt; 3</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1829;987</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>xmin ← colonnePremiereCase</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre>lignepremiereCase
+> 6</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1956;909</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>xmax ← colonnePremiereCase</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Action>
+      </Enfants>
+    </Action>
+    <Iteration>
+      <Position>2306.5;541.5</Position>
+      <StyleLien>1</StyleLien>
+      <Titre>?</Titre>
+      <IterationFixe>0</IterationFixe>
+      <Enfants/>
+    </Iteration>
+    <Action>
+      <Position>2099;668</Position>
+      <StyleLien>1</StyleLien>
+      <PreAssertion>ymin
+ymax</PreAssertion>
+      <PostAssertion>ligneDeuxiemeCaseBateau</PostAssertion>
+      <Titre>ligneDeuxiemeCaseBateau ←
+aléatoire entre ymin et ymax</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants/>
+    </Action>
+    <Action>
+      <Position>2403;774</Position>
+      <StyleLien>1</StyleLien>
+      <PreAssertion>xmin
+xmax</PreAssertion>
+      <PostAssertion>colonneDeuxiemeCaseBateau</PostAssertion>
+      <Titre>colonneDeuxiemeCaseBateau ←
+aléatoire entre xmin et xmax</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants/>
+    </Action>
+  </Elements>
+</Algorithme>
