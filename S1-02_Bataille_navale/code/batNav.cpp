@@ -8,6 +8,11 @@
  * 
  */
 
+/*changes : 
+    dans la saisie : changelent du if dans le if et séparation du message d'erreur 
+
+
+*/
 #include "batnav.h"
 #include "game-tools.h"
 #include <iostream>
@@ -15,6 +20,15 @@
 #include <random>
 #include <chrono>
 using namespace std;
+
+
+void afficherRegles()
+{
+    cout << "B A T A I L L E   N A V A L E " << endl;
+    cout << "Le joueur doit couler un bateau de 4 cases "
+         << "( vertical ou horizontal ou diagonal )." << endl
+         << endl;
+}
 
 void remplissageGrilleVide(char grille[][TAILLE_GRILLE], unsigned short int tailleGrille)
 {
@@ -26,23 +40,6 @@ void remplissageGrilleVide(char grille[][TAILLE_GRILLE], unsigned short int tail
         }
     }
 }
-
-/*
-char[TAILLE_GRILLE][TAILLE_GRILLE] creationGrilleVide()
-{
-    const unsigned short int TAILLE_GRILLE = 9;
-    char grille[TAILLE_GRILLE][TAILLE_GRILLE];
-
-    for (unsigned int ligne = 0; ligne < TAILLE_GRILLE ; ligne++)
-    {
-        for (unsigned int colonne = 0; colonne < TAILLE_GRILLE ; colonne++)
-        {
-            grille[ligne][colonne] = ' ';
-        }
-    }
-    return grille;
-}*/
-
 
 void creationBateau(char grille[][TAILLE_GRILLE])
 {
@@ -87,6 +84,9 @@ void creationBateau(char grille[][TAILLE_GRILLE])
         colonneCaseAutresBateaux = static_cast<unsigned short int> (random(xmin, xmax));
     }
     while ((lignePremiereCaseBateau == ligneCaseAutresBateaux) && (colonnePremiereCaseBateau == colonneCaseAutresBateaux));
+
+
+    // -- Calcul du décalage vertical et horizontal de la 2e case par rapport à la 1ere --
     decalageVertical = static_cast<short int> (ligneCaseAutresBateaux - lignePremiereCaseBateau);
     decalageHorizontal = static_cast<short int> (colonneCaseAutresBateaux - colonnePremiereCaseBateau);
     
@@ -101,7 +101,27 @@ void creationBateau(char grille[][TAILLE_GRILLE])
 
 }
 
-void afficherTableauCarreDeCharacteres(char tab[][TAILLE_GRILLE], unsigned short int tailleTab)
+void afficherCoordoneesBateau(char grille[][TAILLE_GRILLE], unsigned short int TAILLE_GRILLE)
+{
+    unsigned short int ligne;
+    unsigned short int colonne;
+
+    cout << "les coordonees du bateau sont : ";
+
+    //Parcourt chaque emplacement du tableau
+    for (ligne = 0; ligne < TAILLE_GRILLE; ligne++)
+    {
+        for (colonne = 0; colonne < TAILLE_GRILLE; colonne++)
+        {
+            if (grille[ligne][colonne] == 'O')
+            {
+                cout << "(" << char(colonne + 65) << "," << ligne + 1 << ")  ";
+            }
+        }
+    }
+}
+
+void afficherTableauCarreDeCaracteres(char tab[][TAILLE_GRILLE], unsigned short int tailleTab)
 {
     for (unsigned short int ligne = 0 ; ligne <  tailleTab+1; ligne++)
     {
@@ -143,8 +163,72 @@ void afficherLigne(unsigned int nombreCases)
     cout << endl;    
 }
 
-void affichageBateau(char grille[][TAILLE_GRILLE]);//OIER
+bool saisieCoordonnees ( unsigned short int & tentatives, unsigned short int  & colonneCiblee, unsigned short int & ligneCiblee)
+{
+    char colonneLettre;
+    char ligneLettre;
+    
 
-void saisieCoordonnees(unsigned int &ligneCase, unsigned &colonneCase);//OIER
+    while (true)
+    {
+        cout << "Votre tir numero " << tentatives + 1 << " (ex A3) ou abandonner (@@) ? ";
+        cin >> colonneLettre;
+        colonneCiblee = int(colonneLettre);
+        cin >> ligneLettre;
+        ligneCiblee = int(ligneLettre);
 
-void modifGrille(char grille[9][9], const unsigned int &ligneCase, const unsigned int &coolonneCase);//OIER
+        //Si l'utilisateur saisie @@ pour abandonner
+        if ((colonneCiblee == AROBASE_ASCII) && (ligneCiblee == AROBASE_ASCII))
+        {
+            return true;
+        }
+
+        //Saisies dans le bon intervalle
+        else if ((colonneCiblee >= A_ASCII) && (colonneCiblee <= I_ASCII) && (ligneCiblee >= UN_ASCII) && (ligneCiblee <= NEUF_ASCII))
+        {
+            return false;
+        }
+
+        //Saisie en dehors du tableau
+        else
+        {
+            if ((colonneCiblee < 1) || (colonneCiblee > 9))
+            {
+                cout << "Il y a une erreur dans la saisie de la colonne " << endl;
+            }
+
+            if ((ligneCiblee < UN_ASCII) || (ligneCiblee > NEUF_ASCII))
+            {
+                cout << "Il y a une erreur dans la saisie de la ligne " << endl;
+            }
+        }
+    }
+    return false;
+}
+
+void modifGrille ( char grilleAffiche [][TAILLE_GRILLE], char grilleCache [][TAILLE_GRILLE], unsigned short int colonne, unsigned short int ligne, unsigned short int & compteurTir, unsigned short int & compteurTouche)
+{
+    unsigned short int ligneTraduite;
+    unsigned short int colonneTraduite;
+
+    //Traduction des lignes et colonnes de char à int
+    ligneTraduite = static_cast<unsigned short int>(ligne - UN_ASCII);
+    colonneTraduite = static_cast<unsigned short int>(colonne - A_ASCII);
+
+    //Si la case n'a pas été déjà découverte
+    if ((grilleAffiche[ligneTraduite][colonneTraduite] != 'O') && (grilleAffiche[ligneTraduite][colonneTraduite] != '.'))
+    {
+        //Case contenant bateau
+        if (grilleCache[ligneTraduite][colonneTraduite] == 'O')
+        {
+            grilleAffiche[ligneTraduite][colonneTraduite] = 'O';
+            compteurTouche++;
+        }
+        //Case vide
+        else 
+        {
+            grilleAffiche[ligneTraduite][colonneTraduite] = '.';
+        }
+        compteurTir++;
+    }
+}

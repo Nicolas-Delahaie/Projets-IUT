@@ -13,6 +13,21 @@
 
 const unsigned short int TAILLE_GRILLE = 9;
 
+const unsigned short int A_ASCII = 65;
+const unsigned short int I_ASCII = 73;
+
+const unsigned short int AROBASE_ASCII = 64;
+
+const unsigned short int UN_ASCII = 49;
+const unsigned short int NEUF_ASCII = 57;
+
+
+/**
+ * @brief Affiche les règles du jeu
+ * 
+ */
+void afficherRegles();
+
 /**
  * @brief Remplit la grille d'espaces
  * 
@@ -32,7 +47,7 @@ void creationBateau(char grille[][TAILLE_GRILLE]);
  * 
  * @param grille 
  */
-void affichageBateau(char grille[][TAILLE_GRILLE]);
+void afficherCoordoneesBateau(char grille[][TAILLE_GRILLE], unsigned short int TAILLE_GRILLE);
 
 /**
  * 
@@ -42,22 +57,25 @@ void affichageBateau(char grille[][TAILLE_GRILLE]);
  * @param LARGEUR 
  * @param LONGUEUR 
  */
-void afficherTableauCarreDeCharacteres(char tab[][TAILLE_GRILLE], unsigned short int tailleTab);
+void afficherTableauCarreDeCaracteres(char tab[][TAILLE_GRILLE], unsigned short int tailleTab);
 
 /**
  * @brief Affiche une ligne de tableau de nombreCases
  * 
  * @param nombreCases 
  */
-void afficherLigne(unsigned int nombreCases); //OIER
+void afficherLigne(unsigned int nombreCases);
 
 /**
- * @brief Saisie des coordonnées sous forme "A5" et renvoit une ligne et uen colonne
+ * @brief Saisie des coordonnées sous forme "A5" et renvoit la ligne et la colonne associés. Renvoit faux si le joueur abandonne (a entré @@)
  * 
+ * @param tentatives 
+ * @param colonneNumero 
  * @param ligne 
- * @param colonne 
+ * @return true 
+ * @return false 
  */
-void saisieCoordonnees(unsigned int &ligneCase, unsigned &colonneCase);//OIER
+bool saisieCoordonnees ( unsigned short int & tentatives, unsigned short int  & colonneNumero, unsigned short int & ligne);
 
 /**
  * @brief Modifie la grille pour rajouter un "." ou un "O" en fonction de la ligne et colonne de la case saisie et envoit un message
@@ -66,7 +84,7 @@ void saisieCoordonnees(unsigned int &ligneCase, unsigned &colonneCase);//OIER
  * @param ligneCase 
  * @param coolonneCase 
  */
-void modifGrille(char grille[TAILLE_GRILLE][TAILLE_GRILLE], const unsigned int &ligneCase, const unsigned int &coolonneCase);//OIER
+void modifGrille ( char grilleAffiche [][TAILLE_GRILLE], char grilleCache [][TAILLE_GRILLE], unsigned short int colonne, unsigned short int ligne, unsigned short int & compteurTir, unsigned short int & compteurTouche);
 
 
 #endif 
